@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Application Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 p-6">
+    <h1 class="text-2xl font-bold mb-4">Loan Application Details</h1>
+    <div id="application-details" class="bg-white p-4 rounded shadow-md"></div>
+    <button id="back-button" class="mt-4 bg-blue-500 text-white px-4 py-2 rounded">Back to Application</button>
+
+    <script>
+        // Function to get application details from localStorage
+        const displayApplicationDetails = () => {
+            const applicationData = JSON.parse(localStorage.getItem('applicationData'));
+            const detailsDiv = document.getElementById('application-details');
+
+            if (applicationData) {
+                detailsDiv.innerHTML = `
+                    <p><strong>Full Name:</strong> ${applicationData.fullName}</p>
+                    <p><strong>Loan Amount:</strong> $${applicationData.loanAmount}</p>
+                    <p><strong>Bank Account:</strong> ${applicationData.bankAccount}</p>
+                    <p><strong>Employment Status:</strong> ${applicationData.employmentStatus}</p>
+                    <p><strong>Reason for Loan:</strong> ${applicationData.loanReason}</p>
+                    <p><strong>Employer Address:</strong> ${applicationData.employerAddress}</p>
+                `;
+            }
+        };
+
+        // Display application details on page load
+        window.onload = displayApplicationDetails;
+
+        // Back button functionality
+        document.getElementById('back-button').addEventListener('click', () => {
+            window.location.href = 'index.html'; // Go back to the application form
+        });
+    </script>
+</body>
+</html>

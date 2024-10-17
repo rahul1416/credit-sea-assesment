@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+      "outDir": "./dist",          // Ensure the compiled files are output here
+      "rootDir": "./src",          // Source files are in src/
+      "target": "ES6",             // Compile to ECMAScript 6
+      "module": "commonjs",        // Use CommonJS for Node.js compatibility
+      "strict": true,              // Enable strict type checking
+      "esModuleInterop": true      // Enable compatibility with ES6 modules
+    },
+    "include": ["src/**/*"],        // Include all files in src/
+    "exclude": ["node_modules"]     // Exclude node_modules
+  }
+  
